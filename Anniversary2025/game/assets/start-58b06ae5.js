@@ -1,0 +1,1 @@
+const a=new URL("./start-71eb217b.webp",import.meta.url).href;export{a as default};

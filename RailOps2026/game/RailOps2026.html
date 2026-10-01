@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+    content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true,viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="renderer" content="webkit" />
+  <meta name="force-rendering" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="360-fullscreen" content="true" />
+  <meta name="x5-page-mode" content="app" />
+  <title>《蔚蓝档案》全速前进！铁轨巡游大作战</title>
+  <link rel="icon" href="favicon.ico" />
+  <meta name="description" content="完成限时网页活动，即可获得青辉石和大量游戏养成素材奖励！" />
+  <meta name="keywords" content="《蔚蓝档案》全速前进！铁轨巡游大作战" />
+  <style>
+    #splash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 0;
+      border: 0;
+      margin: 0;
+      width: 100vw;
+      height: 100vh;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-image: url("loading/bg.webp");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      overflow: hidden;
+      z-index: 2
+    }
+
+    .progress-loading {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+      width: auto;
+      object-fit: contain
+    }
+
+    .progress-bar {
+      width: 70%;
+      max-width: 1000px;
+      aspect-ratio: 1060/82;
+      z-index: 20;
+      position: relative;
+      background-image: url("loading/loading-1.webp");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain
+    }
+
+    .progress-bar .progress-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      overflow: hidden
+    }
+
+    .progress-bar .progress-rate {
+      display: block;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      transition: width .2s ease-in-out;
+      background-image: url("loading/loading-2.webp");
+      background-position: left center;
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+      position: relative
+    }
+
+    .progress-suffix {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 5%;
+      transform: translateX(-35%) translateY(-50%);
+      transition: .2s ease-in-out
+    }
+
+    .progress-dot {
+      position: absolute;
+      left: -8%;
+      top: 50%;
+      width: 3%;
+      transform: translateX(-50%) translateY(-50%)
+    }
+
+    .progress-dot2 {
+      position: absolute;
+      right: -8%;
+      top: 50%;
+      width: 3%;
+      transform: translateX(-50%) translateY(-50%)
+    }
+
+    .progress-loading-text {
+      position: absolute;
+      top: 150%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%
+    }
+
+    .progress-loading-top-text {
+      position: absolute;
+      top: -134%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 27%
+    }
+
+    #horizontal-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh;
+      background-color: #fff;
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 200
+    }
+
+    #horizontal-wrapper img {
+      width: 80px;
+      height: auto;
+      display: block
+    }
+
+    #horizontal-wrapper span {
+      font-size: 18px;
+      margin-top: 22px;
+      color: #333;
+      text-align: center
+    }
+
+    @media (max-width:1023px) and (orientation:portrait) {
+      #horizontal-wrapper {
+        display: flex
+      }
+    }
+  </style>
+  <script>window.IS_MOBILE = /Android|webOS|iPhone|iPod|iPad|BlackBerry|IEMobile|Mobile|Mobi/i.test(navigator.userAgent)</script>
+  <script>window.gtag = function () { };</script>
+  <script>
+    window.IS_HARMONY = /harmony/ig.test(navigator.userAgent)
+  </script>
+  <link rel="stylesheet" href="assets/index-4900a4b7.css">
+</head>
+
+<body attr-mode="">
+  <div id="splash">
+    <div class="progress-bar">
+      <div class="progress-inner">
+        <span class="progress-rate" style="width:0%"></span>
+      </div>
+      <img class="progress-loading-top-text" src="loading/loading-top-text.webp" alt="">
+    </div>
+  </div>
+  <div id="horizontal-wrapper">
+    <img src="horizontal.webp" alt="旋转提示" />
+    <span>请旋转屏幕，以获得最佳体验</span>
+  </div>
+  <script>
+    window.EVENT_LOADING = 'minigame-loading';
+    window.EVENT_STARTED = 'minigame-started';
+
+    (function () {
+      var splash = document.getElementById('splash');
+      var progressBar = splash && splash.querySelector('.progress-rate');
+      var progressText = splash && splash.querySelector('.progress-text');
+
+      var realPercent = 0;
+      var fakePercent = 0;
+      var finished = false;
+      var fakeTimer = null;
+      var MAX_FAKE = 90;
+
+      function setProgress(p) {
+        if (!progressBar) return;
+        p = Math.max(0, Math.min(100, p));
+        progressBar.style.width = p.toFixed(2) + '%';
+        if (splash) {
+          splash.style.display = 'flex';
+        }
+      }
+
+      function startFakeProgress() {
+        if (fakeTimer || !progressBar) return;
+        fakeTimer = setInterval(function () {
+          if (finished) return;
+          var speed = (100 - fakePercent) * 0.06 + 0.6;
+          fakePercent = Math.min(fakePercent + speed, MAX_FAKE);
+          var display = Math.max(fakePercent, realPercent);
+          setProgress(display);
+        }, 100);
+      }
+
+      startFakeProgress();
+
+      window.addEventListener(EVENT_LOADING, function (e) {
+        if (!progressBar || !e || !e.detail) return;
+        var finishedCount = e.detail.finished || 0;
+        var total = e.detail.total || 1;
+        realPercent = Math.min(100, (100 * finishedCount) / total);
+        var display = Math.max(fakePercent, realPercent);
+        setProgress(display);
+      });
+
+      window.addEventListener(EVENT_STARTED, function () {
+        finished = true;
+        realPercent = 100;
+        setProgress(100);
+        if (fakeTimer) {
+          clearInterval(fakeTimer);
+          fakeTimer = null;
+        }
+        setTimeout(function () {
+          if (splash) splash.style.display = 'none';
+        }, 300);
+      });
+    })();
+  </script>
+  <div id="app"></div>
+  <script src="SpinePlugin.js"></script>
+  <script src="vconsole.min.js"></script>
+  <script>window.vc = new window.VConsole();</script>
+  <style>
+    #__vconsole {
+      display: none
+    }
+  </style>
+  <script src="dat.gui.min.js"></script>
+  <script src="crypto-js.min.js"></script>
+  <style>
+    #vconsole-show-btn {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 40px;
+      height: 40px;
+      z-index: 9999999
+    }
+  </style>
+  <div id="vconsole-show-btn"></div>
+  <script>
+    (function () {
+      var count = 0
+      document.getElementById('vconsole-show-btn').addEventListener('click', function () {
+        if (++count >= 30) {
+          if (window.vc && document.querySelector('#__vconsole')) {
+            document.querySelector('#__vconsole').style.display = 'block'
+          }
+        }
+      })
+    })()
+  </script>
+  <script type="module" src="assets/phaser-ec81a19d.js"></script>
+  <script type="module" src="assets/react-bb3a8ff5.js"></script>
+  <script type="module" src="assets/pixi-c190643b.js"></script>
+  <script type="module" src="assets/index-5f838d86.js"></script>
+</body>
+
+</html>

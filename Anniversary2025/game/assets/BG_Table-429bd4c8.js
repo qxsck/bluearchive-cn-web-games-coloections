@@ -1,0 +1,1 @@
+const a=new URL("./BG_Table-a27859d1.webp",import.meta.url).href;export{a as default};

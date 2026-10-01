@@ -1,0 +1,1 @@
+const a=new URL("./rule-a1b69465.png",import.meta.url).href;export{a as default};

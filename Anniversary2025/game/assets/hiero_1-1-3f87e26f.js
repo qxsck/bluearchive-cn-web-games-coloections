@@ -1,0 +1,1 @@
+const a=new URL("./hiero_1-1-fefc49b9.png",import.meta.url).href;export{a as default};

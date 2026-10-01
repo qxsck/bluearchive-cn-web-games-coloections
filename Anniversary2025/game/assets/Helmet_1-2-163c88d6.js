@@ -1,0 +1,1 @@
+const e=new URL("./Helmet_1-2-08b7b53f.webp",import.meta.url).href;export{e as default};

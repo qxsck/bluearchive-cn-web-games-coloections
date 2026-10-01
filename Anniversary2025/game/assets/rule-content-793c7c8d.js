@@ -1,0 +1,1 @@
+const n=new URL("./rule-content-df5a66c1.png",import.meta.url).href;export{n as default};

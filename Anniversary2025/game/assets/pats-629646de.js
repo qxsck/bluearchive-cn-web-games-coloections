@@ -1,0 +1,1 @@
+const a=new URL("./pats-38695c2f.png",import.meta.url).href;export{a as default};

@@ -1,0 +1,1 @@
+const a=new URL("./pause-text-3cf02c85.webp",import.meta.url).href;export{a as default};

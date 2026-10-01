@@ -1,0 +1,1 @@
+const a=new URL("./pats-4fa4d630.webp",import.meta.url).href;export{a as default};

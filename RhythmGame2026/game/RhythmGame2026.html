@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport"
+    content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1,minimal-ui=true,viewport-fit=cover" />
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="format-detection" content="telephone=no" />
+
+  <meta name="renderer" content="webkit" />
+  <meta name="force-rendering" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <meta name="full-screen" content="yes" />
+  <meta name="x5-fullscreen" content="true" />
+  <meta name="360-fullscreen" content="true" />
+
+  <meta name="x5-page-mode" content="app" />
+
+  <title>《蔚蓝档案》炫音节拍</title>
+  <meta name="description" content="完成限时网页活动，即可获得青辉石和大量游戏养成素材奖励！" />
+  <meta name="Keywords" content="《蔚蓝档案》炫音节拍" />
+  <link rel="icon" href="favicon.ico" />
+
+  <meta property="og:title" content="《蔚蓝档案》炫音节拍" />
+  <meta property="og:description" content="完成限时网页活动，即可获得青辉石和大量游戏养成素材奖励！" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <link rel="stylesheet" type="text/css" href="style.e598f.css?v=20260808" />
+  <script src="crypto-js.min.js"></script>
+
+  <script>window.gtag = function () { };</script>
+</head>
+
+<body>
+  <div id="GameDiv">
+    <div id="Cocos3dGameContainer">
+      <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+    </div>
+  </div>
+  <div id="splash">
+    <img src="loading/light.png" class="spotlight spotlight-1" alt="" />
+    <img src="loading/light.png" class="spotlight spotlight-2" alt="" />
+    <img src="loading/light.png" class="spotlight spotlight-3" alt="" />
+    <img src="loading/light.png" class="spotlight spotlight-4" alt="" />
+    <div id="rhythms">
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+      <div class="rhythm"></div>
+    </div>
+    <img src="loading/adorn_1.png" class="adorn adorn-1" alt="" />
+    <img src="loading/adorn_2.png" class="adorn adorn-2" alt="" />
+    <img src="loading/adorn_3.png" class="adorn adorn-3" alt="" />
+    <img src="loading/adorn_4.png" class="adorn adorn-4" alt="" />
+    <div class="text">
+      <div class="loader loader-left"></div>
+      <img src="loading/loading.png" alt="Loading" class="loading-image" />
+      <div class="loader loader-right"></div>
+    </div>
+    <div class="progress-bar">
+      <span class="progress-rate" style="width: 0%"></span>
+      <div class="progress-mask"></div>
+    </div>
+  </div>
+
+  <div id="horizontal-wrapper">
+    <img src="loading/horizontal.png" alt="旋转提示" />
+    <span>请旋转屏幕，以获得最佳体验</span>
+  </div>
+
+  <script type="text/javascript">
+    (function () {
+      var splash = document.getElementById("splash");
+      splash.style.display = "flex";
+    })();
+  </script>
+
+  <script src="src/polyfills.bundle.5adbf.js" charset="utf-8"> </script>
+  <script src="src/system.bundle.692e9.js" charset="utf-8"> </script>
+  <script src="src/import-map.32f24.json" type="systemjs-importmap" charset="utf-8"> </script>
+
+  
+<script>
+window._findRhythmGC=function(){if(window._gc&&!window._gc.isGameOver)return window._gc;try{if(typeof cc==="undefined"||!cc.director)return null;var s=cc.director.getScene();if(!s)return null;function walk(n,d){d=d||0;if(d>9)return null;var cs=n._components||n.components||[];for(var j=0;j<cs.length;j++){if(cs[j]&&typeof cs[j].pauseGame==="function"&&typeof cs[j].resumeGame==="function"){return cs[j];}}for(var i=0;i<n.children.length;i++){var r=walk(n.children[i],d+1);if(r)return r;}return null;}return walk(s,0);}catch(e){return null;}};
+window._escHandlerRhythm=function(n){if(n.key!=="Escape"&&n.key!=="Esc"&&n.keyCode!==27)return;try{var gc=window._findRhythmGC();if(!gc||gc.isGameOver)return;if(gc.isPaused){if(gc.pausePopupInstance){var cs=gc.pausePopupInstance._components||gc.pausePopupInstance.components||[];for(var j=0;j<cs.length;j++){if(cs[j]&&typeof cs[j].onClickContinueBtn==="function"){cs[j].onClickContinueBtn();return;}}}gc.resumeGame();}else{gc.pauseGame();}}catch(e){console.warn("[ESC RhythmGame] error:",e&&e.message)}};
+window.addEventListener("keydown",window._escHandlerRhythm,true);
+</script>
+
+<script>
+// 将 PC 键位提示注入「玩法说明」弹窗（faq_start_popup）滚动内容顶部
+(function () {
+  if (window.__rhythmKeyHintInstalled) return;
+  window.__rhythmKeyHintInstalled = true;
+
+  var HINT_TEXT = 'PC键位：D / F / J / K 键操作　　ESC 暂停 / 继续游戏';
+  var HINT_H = 46, GAP = 10;
+
+  function findNode(root, name, depth) {
+    if (!root || depth < 0) return null;
+    if (root.name === name) return root;
+    var ch = root.children || [];
+    for (var i = 0; i < ch.length; i++) {
+      var r = findNode(ch[i], name, depth - 1);
+      if (r) return r;
+    }
+    return null;
+  }
+
+  function comps(n) { return (n && (n._components || n.components)) || []; }
+
+  function compWhere(n, pred) {
+    var cs = comps(n);
+    for (var i = 0; i < cs.length; i++) {
+      if (cs[i] && pred(cs[i])) return cs[i];
+    }
+    return null;
+  }
+
+  function isUITransform(c) { return typeof c.setContentSize === 'function' && 'anchorX' in c; }
+  function isScrollView(c) { return 'content' in c && typeof c.scrollToTop === 'function'; }
+  function isGraphics(c) { return typeof c.roundRect === 'function' && typeof c.fill === 'function'; }
+
+  function inject(popup) {
+    var svNode = findNode(popup, 'ScrollView', 5);
+    if (!svNode) return false;
+
+    var sv = compWhere(svNode, isScrollView);
+    if (!sv || !sv.content) return false;
+
+    var img = sv.content;
+    if (img.__keyHintDone) return true;
+
+    var uiT = compWhere(img, isUITransform);
+    if (!uiT) return false;
+    var UITransformCtor = uiT.constructor;
+
+    var view = img.parent || findNode(svNode, 'view', 3);
+    if (!view) return false;
+    var gComp = compWhere(view, isGraphics);
+    var GraphicsCtor = gComp ? gComp.constructor : (cc.Graphics || null);
+
+    if (typeof cc.Node !== 'function' || typeof cc.Label !== 'function' ||
+        typeof GraphicsCtor !== 'function' || typeof UITransformCtor !== 'function') {
+      return false;
+    }
+
+    // 新建节点默认 layer 为 DEFAULT，UI 相机不渲染，必须继承父节点 layer
+    var UI_LAYER = view.layer;
+
+    var W = uiT.width, H = uiT.height;
+    var ax = uiT.anchorX, ay = uiT.anchorY;
+    var S = HINT_H + GAP;
+    var Hb = H + S;
+    var stripCenter = (1 - ay) * Hb - S / 2;
+
+    var box = new cc.Node('keyHintBox');
+    box.layer = UI_LAYER;
+    var boxUt = box.addComponent(UITransformCtor);
+    boxUt.setAnchorPoint(ax, ay);
+    boxUt.setContentSize(W, Hb);
+    box.setPosition(img.position.x, img.position.y - (1 - ay) * S);
+
+    img.parent.addChild(box);
+    box.addChild(img);
+    img.setPosition(0, -ay * S);
+
+    sv.content = box;
+    img.__keyHintDone = true;
+
+    var g = box.addComponent(GraphicsCtor);
+    var ColorCtor = (g.fillColor && g.fillColor.constructor) || null;
+    g.roundRect(-ax * W + 14, stripCenter - HINT_H / 2, W - 28, HINT_H, 8);
+    if (ColorCtor) g.fillColor = new ColorCtor(255, 224, 102, 90);
+    g.fill();
+    g.lineWidth = 2;
+    if (ColorCtor) g.strokeColor = new ColorCtor(78, 72, 104, 40);
+    g.stroke();
+
+    var ln = new cc.Node('keyHintLabel');
+    ln.layer = UI_LAYER;
+    var lnUt = ln.addComponent(UITransformCtor);
+    lnUt.setContentSize(W - 28, HINT_H);
+    var lb = ln.addComponent(cc.Label);
+    lb.string = HINT_TEXT;
+    lb.fontSize = 24;
+    lb.lineHeight = 28;
+    lb.horizontalAlign = 1;
+    lb.verticalAlign = 1;
+    if (ColorCtor) lb.color = new ColorCtor(78, 72, 104, 255);
+    ln.setPosition(-ax * W + W / 2, stripCenter);
+    box.addChild(ln);
+
+    if (sv.scrollToTop) sv.scrollToTop(0);
+    console.log('[keyHint] injected into faq_start_popup');
+    return true;
+  }
+
+  setInterval(function () {
+    var C = window.cc;
+    if (!C || !C.director) return;
+    var scene = C.director.getScene();
+    if (!scene) return;
+    var popup = findNode(scene, 'faq_start_popup', 6);
+    if (!popup || popup.__keyHintPatched) return;
+    try {
+      if (inject(popup)) popup.__keyHintPatched = true;
+    } catch (e) {}
+  }, 250);
+})();
+</script>
+
+<script>
+    System.import('./index.1ad0d.js').catch(function (err) { console.error(err); })
+  </script>
+
+</body>
+
+</html>

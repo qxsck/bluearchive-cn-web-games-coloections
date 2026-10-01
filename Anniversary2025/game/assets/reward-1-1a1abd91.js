@@ -1,0 +1,1 @@
+const a=new URL("./reward-1-acfb41d0.webp",import.meta.url).href;export{a as default};

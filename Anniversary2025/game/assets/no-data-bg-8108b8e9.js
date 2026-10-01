@@ -1,0 +1,1 @@
+const a=new URL("./no-data-bg-fab3dfd8.png",import.meta.url).href;export{a as default};

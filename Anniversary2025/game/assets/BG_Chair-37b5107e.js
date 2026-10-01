@@ -1,0 +1,1 @@
+const a=new URL("./BG_Chair-bb694c7f.webp",import.meta.url).href;export{a as default};

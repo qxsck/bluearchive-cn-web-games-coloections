@@ -1,0 +1,1 @@
+const e=new URL("./bg-pre-ee9e8363.png",import.meta.url).href;export{e as default};

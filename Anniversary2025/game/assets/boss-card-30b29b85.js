@@ -1,0 +1,1 @@
+const a=new URL("./boss-card-544d74b6.webp",import.meta.url).href;export{a as default};

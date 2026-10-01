@@ -1,0 +1,1 @@
+const a=new URL("./bg-pre-4575637b.webp",import.meta.url).href;export{a as default};

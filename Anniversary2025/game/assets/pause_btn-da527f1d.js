@@ -1,0 +1,1 @@
+const a=new URL("./pause_btn-5bc38144.png",import.meta.url).href;export{a as default};

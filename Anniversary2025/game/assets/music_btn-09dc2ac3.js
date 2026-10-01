@@ -1,0 +1,1 @@
+const a=new URL("./music_btn-662fbebc.png",import.meta.url).href;export{a as default};

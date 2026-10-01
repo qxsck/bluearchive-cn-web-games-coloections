@@ -1,0 +1,1 @@
+const a=new URL("./Makoto_2-4-d8f3282b.webp",import.meta.url).href;export{a as default};

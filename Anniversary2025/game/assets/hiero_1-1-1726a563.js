@@ -1,0 +1,1 @@
+const a=new URL("./hiero_1-1-bdd619b8.webp",import.meta.url).href;export{a as default};

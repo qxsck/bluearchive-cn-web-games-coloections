@@ -1,0 +1,1 @@
+const a=new URL("./BG_Chair-00a0a09e.png",import.meta.url).href;export{a as default};

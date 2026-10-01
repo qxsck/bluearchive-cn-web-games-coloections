@@ -1,0 +1,1 @@
+const a=new URL("./Fuuka_1-2-f876676f.webp",import.meta.url).href;export{a as default};

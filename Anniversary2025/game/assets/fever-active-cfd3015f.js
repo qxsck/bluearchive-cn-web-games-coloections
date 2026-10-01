@@ -1,0 +1,1 @@
+const e=new URL("./fever-active-e34d44db.webp",import.meta.url).href;export{e as default};

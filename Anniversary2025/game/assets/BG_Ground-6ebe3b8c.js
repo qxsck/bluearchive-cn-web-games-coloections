@@ -1,0 +1,1 @@
+const a=new URL("./BG_Ground-ee687262.png",import.meta.url).href;export{a as default};

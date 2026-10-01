@@ -1,0 +1,1 @@
+const a=new URL("./time-a71c8da6.png",import.meta.url).href;export{a as default};

@@ -1,0 +1,1 @@
+const a=new URL("./BG_Ground-ce5ede67.webp",import.meta.url).href;export{a as default};

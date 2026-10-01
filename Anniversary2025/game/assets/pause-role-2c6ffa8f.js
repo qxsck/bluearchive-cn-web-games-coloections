@@ -1,0 +1,1 @@
+const a=new URL("./pause-bg-cd5f8593.webp",import.meta.url).href;export{a as default};

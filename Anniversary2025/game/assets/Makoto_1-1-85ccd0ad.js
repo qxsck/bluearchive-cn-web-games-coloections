@@ -1,0 +1,1 @@
+const a=new URL("./Makoto_1-1-34a78426.png",import.meta.url).href;export{a as default};

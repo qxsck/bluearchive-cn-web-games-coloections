@@ -1,0 +1,1 @@
+const a=new URL("./rule-bg-511573db.webp",import.meta.url).href;export{a as default};

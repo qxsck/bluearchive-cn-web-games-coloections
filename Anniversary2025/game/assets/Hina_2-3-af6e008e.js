@@ -1,0 +1,1 @@
+const a=new URL("./Hina_2-3-4cb3640b.webp",import.meta.url).href;export{a as default};
