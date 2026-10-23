@@ -1,32 +1,51 @@
-keystore/
+# ============================================================
+#  Blue Archive Web Games - Git 忽略规则
+#  GitHub 上只保留「可离线游玩的纯前端网页」部分：
+#  入口页 + 本地服务器 + 四款游戏资源 + 说明文档
+#  APK 打包脚本、签名密钥、构建产物一律不同步
+# ============================================================
+
+# ---------- 先忽略全部内容 ----------
+*
+# ---------- 保留目录结构，否则下面的白名单无法生效 ----------
+!*/
+
+# ---------- 放行：Web 运行入口与文档 ----------
+!.gitignore
+!README.md
+!DISCLAIMER.md
+!index.html
+!server.js
+!start.bat
+!stop.bat
+!favicon.ico
+
+# ---------- 放行：四款游戏的全部网页资源 ----------
+!RailOps2026/**
+!RhythmGame2026/**
+!Anniversary2025/**
+!MidAutumn2026/**
+
+# ---------- 明确排除：APK 打包相关（含打包脚本本身） ----------
 apk_output/
+keystore/
+web_output/
+node_modules/
+.git/
+build_apks.ps1
+build_apks.bat
+apk_versions.json
+pack_web.ps1
+pack_web.bat
 *.apk
 *.aab
 *.idsig
 *.jks
 *.keystore
 
-node_modules/
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.env
-.env.*
-
-build/
-dist/
-out/
-*.log
-npm-debug.log*
-
-* - 副本.*
-*.bak
-*.tmp
-*.orig
-
-.DS_Store
+# ---------- 系统 / 编辑器垃圾 ----------
 Thumbs.db
 Desktop.ini
+.DS_Store
 .vscode/
 .idea/
